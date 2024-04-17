@@ -1,7 +1,15 @@
 <script>
 
+    import { store } from '../../store.js';
+
     export default {
-        name: 'AppHeader'
+        name: 'AppHeader',
+
+        data(){
+            return{
+                store
+            }
+        }
     }
 
 
@@ -17,8 +25,8 @@
                     <h1 class="ms-2">Bool Flix</h1>
                 </div>
                 <div class="col text-end">
-                    <input type="text" class="p-2" placeholder="Inserisci il titolo di un film o di una serie">
-                    <button class="ms-2 p-2">CERCA</button>
+                    <input type="text" class="p-2" placeholder="Inserisci il titolo di un film o di una serie" v-model="store.titleSearched">
+                    <button type="button" class="ms-2 p-2" @click="$emit('getTitle')">CERCA</button>
                 </div>
             </div>
         </div>

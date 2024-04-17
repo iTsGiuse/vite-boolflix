@@ -9,7 +9,7 @@
 
 <template>
 
-    <div class="card" style="height: 300px">
+    <div class="card" style="height: 200px">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
             <p class="card-text text-center mb-3">Titolo: </p>

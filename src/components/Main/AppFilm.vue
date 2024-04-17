@@ -1,7 +1,13 @@
 <script>
 
+    import SingleCardFilm from './SingleCardFilm.vue';
+
     export default {
-        name: 'AppFilm'
+        name: 'AppFilm',
+
+        components: {
+            SingleCardFilm
+        }
     }
 
 
@@ -15,15 +21,7 @@
         </div>
         <div class="row">
             <div class="col d-flex flex-wrap">
-                <div class="card" style="height: 200px">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text mb-3">Titolo: </p>
-                        <p class="card-text mb-3">Titolo Originale: </p>
-                        <p class="card-text mb-3">Lingua: </p>
-                        <p class="card-text mb-3">Voto: </p>
-                    </div>
-                </div>
+               <SingleCardFilm></SingleCardFilm>
             </div>
         </div>
     </section>
