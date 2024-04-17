@@ -32,7 +32,6 @@
 <style scoped lang="scss">
 
     #film{
-        height: 250px;
         border: 5px solid blue;
     }
 

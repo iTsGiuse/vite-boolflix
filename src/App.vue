@@ -31,7 +31,7 @@
         if(store.titleSearched !== ''){
           this.parametri.query = store.titleSearched
         } else {
-          delete parametri.query
+          delete this.parametri.query
         }
 
         axios.get(this.apiUrl, { params: this.parametri })
