@@ -17,7 +17,8 @@
     data(){
       return{
         store, 
-        apiUrl: 'https://api.themoviedb.org/3/search/movie',
+        apiFilmUrl: 'https://api.themoviedb.org/3/search/movie',
+        apiSerieUrl: 'https://api.themoviedb.org/3/search/tv',
         parametri: { 
           api_key: '1b223db3fec4c01c747fb6d1d36c5387',
          }
@@ -26,25 +27,32 @@
     },
     methods: {
 
-      getFilmApi(){
+      getFromApi(){
 
+        console.log(this.parametri)
         if(store.titleSearched !== ''){
           this.parametri.query = store.titleSearched
-        } else {
+        } /* else {
           delete this.parametri.query
         }
-
-        axios.get(this.apiUrl, { params: this.parametri })
+ */
+        axios.get(this.apiFilmUrl, { params: this.parametri })
           .then(response => {
             store.films = response.data.results;
             console.log(store.films)
           })
+
+         /*  axios.get(this.apiSerieUrl, { params: this.parametri })
+          .then(response => {
+            store.series = response.data.results;
+            console.log(store.series)
+          }) */
       }
 
     },
 
     mounted(){
-      this.getFilmApi();
+      this.getFromApi();
     }
   }
 
@@ -52,8 +60,8 @@
 
 <template>
 
-  <AppHeader @getTitles="getFilmApi"></AppHeader>
-
+  <AppHeader @getTitles="getFromApi"></AppHeader>
+  
   <main>
     <AppFilm></AppFilm>
     <AppSerie></AppSerie>

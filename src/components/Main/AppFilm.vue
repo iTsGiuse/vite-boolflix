@@ -1,5 +1,5 @@
 <script>
-
+    import { store } from '../../store.js';
     import SingleCardFilm from './SingleCardFilm.vue';
 
     export default {
@@ -7,7 +7,14 @@
 
         components: {
             SingleCardFilm
-        }
+        },
+
+        data(){
+            return{
+                store
+            }
+        },
+
     }
 
 
@@ -17,11 +24,11 @@
 
     <section id="film" class="mt-3 container">
         <div class="row">
-            <h5>Film</h5>
+            <h5>Film {{ store.films.lenght }} </h5>
         </div>
         <div class="row">
             <div class="col d-flex flex-wrap">
-               <SingleCardFilm></SingleCardFilm>
+               <SingleCardFilm v-for="film in store.films" :key="film.id" :film="film"></SingleCardFilm>
             </div>
         </div>
     </section>
