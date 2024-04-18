@@ -29,38 +29,35 @@
 
       getFromApi(){
 
-        console.log(this.parametri)
         if(store.titleSearched !== ''){
           this.parametri.query = store.titleSearched
-        } /* else {
+        } else {
           delete this.parametri.query
         }
- */
+
         axios.get(this.apiFilmUrl, { params: this.parametri })
           .then(response => {
             store.films = response.data.results;
             console.log(store.films)
           })
 
-         /*  axios.get(this.apiSerieUrl, { params: this.parametri })
+          axios.get(this.apiSerieUrl, { params: this.parametri })
           .then(response => {
             store.series = response.data.results;
             console.log(store.series)
-          }) */
+          })
       }
 
     },
 
-    mounted(){
-      this.getFromApi();
-    }
+   
   }
 
 </script>
 
 <template>
 
-  <AppHeader @getTitles="getFromApi"></AppHeader>
+  <AppHeader @getTitle="getFromApi"></AppHeader>
   
   <main>
     <AppFilm></AppFilm>

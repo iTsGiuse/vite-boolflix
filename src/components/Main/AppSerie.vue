@@ -1,4 +1,5 @@
 <script>
+
     import { store } from '../../store.js';
     import SingleCardSerie from './SingleCardSerie.vue';
 
@@ -23,11 +24,11 @@
 
     <section id="serie" class="mt-3 container">
         <div class="row">
-            <h5>Serie: {{ store.series.lenght }} </h5>
+            <h5>Serie ({{ store.series.length }}) </h5>
         </div>
         <div class="row">
             <div class="col d-flex flex-wrap">
-                <SingleCardSerie  v-for="serie in store.series" :key="serie.id" serie="serie"></SingleCardSerie>
+                <SingleCardSerie  v-for="serie in store.series" :key="serie.id" :serie="serie"></SingleCardSerie>
             </div>
         </div>
     </section>
